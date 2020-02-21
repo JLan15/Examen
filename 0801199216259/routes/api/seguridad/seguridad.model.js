@@ -64,6 +64,37 @@ userModel.addNew = ({ usertitulo, userurl, userthumbnail, useralbum }  )=>{
   return newUser;
 }
 
+  userModel.update = (id, { usertitulo, userurl, userthumbnail, useralbum })=>{
+    var updatingUser = userCollection.filter(
+      (o, i)=>{
+        return o.userID === id;
+      }
+    );
+    if(updatingUser && updatingUser.length>0){
+      updatingUser = updatingUser[0];
+    } else {
+      return null;
+    }
+    var updateUser = {};
+    var newUpdatedCollection = userCollection.map(
+      (o, i)=>{
+        if(o.userID === id){
+          updateUser = Object.assign({},
+             o,
+            { userTitulo: usertitulo, userURL: userurl, userThumbnail: userthumbnail,  userAlbum: useralbum}
+          );
+          return updateUser;
+        }else{
+          return o;
+        }
+      }
+    );
+     userCollection = newUpdatedCollection;
+     writeToFile();
+     return updateUser;
+   }
+}
+
 
 // userCollection.push(
 //   Object.assign(
