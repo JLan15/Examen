@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('0801199216259:server');
+var debug = require('debug')('bcklencastore:server');
 var http = require('http');
 
 /**
