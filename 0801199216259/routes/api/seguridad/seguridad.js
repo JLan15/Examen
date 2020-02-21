@@ -8,7 +8,6 @@ router.get('/users/all', (req, res)=>{
     return res.status(200).json(userModel.getAll());
 } ); 
 
-
 // http://localhost:3000/api/seguridad/users/new
 router.post('/users/new', (req, res)=>{
   var datosEnviados = req.body;
@@ -23,4 +22,10 @@ router.put('/users/upd/:id', (req, res)=>{
   return res.status(200).json(updUser);
 });
 
+//http://localhost:3000/api/seguridad/users/del
+router.delete('/users/del/:id', (req, res)=>{
+  var id = parseInt(req.params.id);
+  userModel.deleteByCode(id);
+  res.status(200).json({"deleted":true});
+});//delete
 module.exports = router;

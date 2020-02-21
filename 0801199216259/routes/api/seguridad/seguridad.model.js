@@ -93,7 +93,21 @@ userModel.addNew = ({ usertitulo, userurl, userthumbnail, useralbum }  )=>{
      writeToFile();
      return updateUser;
    }
-}
+
+   
+  userModel.deleteByCode = (id)=>{
+    var newCollection = [];
+    newCollection = userCollection.filter(
+      (o)=>{
+        return o.userID !== id;
+      }
+    );
+    userCollection = newCollection;
+    writeToFile();
+    return true;
+  }
+
+
 
 
 // userCollection.push(
