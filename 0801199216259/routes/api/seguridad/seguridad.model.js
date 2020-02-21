@@ -23,7 +23,6 @@ var userTemplate = {
   userURL:"",
   userThumbnail:"",
   userAlbum:"",
-  userDateCreated: null
 }
 
 openFile();
@@ -54,7 +53,6 @@ userModel.addNew = ({ usertitulo, userurl, userthumbnail, useralbum }  )=>{
       userURL: userurl,
       userThumbnail: userthumbnail,
       userAlbum: useralbum,
-      userDateCreated: new Date().getTime()
     }
   );
   newUser.userID = userCollection.length + 1;
@@ -119,8 +117,7 @@ userModel.addNew = ({ usertitulo, userurl, userthumbnail, useralbum }  )=>{
 //       userTitulo: "Hola",
 //       userURL: "www.Jose.com",
 //       userThumbnail: "www.Jose.com",
-//       userAlbum: "Foto",
-//       userDateCreated: new Date().getTime()
+//       userAlbum: "Foto",  
 //     }
 //   )
 // );
@@ -135,7 +132,6 @@ userModel.addNew = ({ usertitulo, userurl, userthumbnail, useralbum }  )=>{
 //       userURL: "www.Landa.com",
 //       userThumbnail: "www.Landa.com",
 //       userAlbum: "Foto",
-//       userDateCreated: new Date().getTime()
 //     }
 //   )
 // );
